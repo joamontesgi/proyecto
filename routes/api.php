@@ -28,3 +28,4 @@ Route::post('/product', [ProductController::class, 'store']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
 Route::post('/inventory', [InventoryController::class, 'store']);
 Route::put('/inventory/{id}', [InventoryController::class, 'update']);
+Route::get('/duplicates', [ProductController::class, 'getDuplicates']);

@@ -16,12 +16,16 @@ class ProductSeeder extends Seeder
     {
         $products = [];
         for ($i = 1; $i <= 10000; $i++) {
-            $products[] = [
-                'name' => 'Product ' . $i,
-                'price' => rand(-100, 1000),
-            ];
+            // Crear dos registros para cada producto
+            for ($j = 0; $j < 2; $j++) {
+                $products[] = [
+                    'name' => 'Product ' . $i,
+                    'price' => rand(-100, 1000),
+                ];
+            }
         }
 
         DB::table('products')->insert($products);
     }
+
 }

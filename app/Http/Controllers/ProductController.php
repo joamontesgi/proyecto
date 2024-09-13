@@ -27,4 +27,16 @@ class ProductController extends Controller
         $product->save();
         return response()->json($product);
     }
+
+    public function getDuplicates()
+    {
+        $duplicates = Product::query()
+            ->select('name', Product::raw('count(*) as count'))
+            ->groupBy('name')
+            ->having('count', '>', 1)
+            ->get();
+
+        return response()->json($duplicates);
+    }
+
 }
